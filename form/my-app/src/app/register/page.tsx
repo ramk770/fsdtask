@@ -26,7 +26,7 @@ export default function Register() {
     }
 
     try {
-      const res = await axios.post("http://localhost:2000/api/v1/register", {
+      const res = await axios.post("https://fsdtask-1.onrender.com/api/v1/register", {
         name,
         employId,
         email,
@@ -38,9 +38,9 @@ export default function Register() {
       });
 
       if (res.status === 201) {
-        console.log("Registered successfully");
+        
         setMessage("Registration successful!");
-        router.push("/login");
+        router.push("/home");
       }
     } catch (error) {
       if (axios.isAxiosError(error)) {
@@ -52,7 +52,7 @@ export default function Register() {
       } else {
         setMessage("An unexpected error occurred.");
       }
-      console.error(error);
+     
     }
   };
 
